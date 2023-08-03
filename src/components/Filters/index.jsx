@@ -12,7 +12,7 @@ const dispatch = useDispatch();
 const [searchText, setSearchText] = useState('');
 const [filterStatus,setFilterStatus]= useState('All')
 const [filterPriorities, setFilterPriorities] = useState('')
-
+console.log(filterPriorities.type)
 const handleSearchTextChange = (e) => {
 
 setSearchText(e.target.value);
@@ -61,8 +61,9 @@ dispatch(filterSlice.actions.prioritiesFilterChange(value))
           allowClear
           placeholder='Please select'
           style={{ width: '100%' }}
-          value={filterPriorities}
-          
+         
+          value={filterPriorities? undefined : undefined}
+        
           onChange={handlePriorityChange}
         >
           <Select.Option value='High' label='High'>
